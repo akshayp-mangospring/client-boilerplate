@@ -34,6 +34,9 @@ export const signup = createAsyncThunk('user/signup', async (userData) => {
   return await unAuthPostData(`${backendUrl}/signup`, userData);
 });
 
+// Selector function to get current user
+export const selectCurrentUser = (state) => state.currentUser;
+
 // Here we have to explicitly export the actions and the reducers as well.
 export const { logout } = registrationSlice.actions;
 export default registrationSlice.reducer;

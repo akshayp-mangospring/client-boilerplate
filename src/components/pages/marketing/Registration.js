@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import "@styles/App.sass";
-import LoginForm from '@components/LoginForm';
-import SignupForm from '@components/SignupForm';
+import LoginForm from '@marketing_components/LoginForm';
+import SignupForm from '@marketing_components/SignupForm';
 
 function RegistrationPage() {
   const [activeTab, setActiveTab] = useState('login');
