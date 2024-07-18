@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 import { login } from '@store/registrationSlice';
-import { getTodoLists } from "@store/todoListsSlice";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [loginField, setLoginField] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     await dispatch(login({ loginField, password }));
-  };
-
-  const testAuthRequest = async () => {
-    await dispatch(getTodoLists());
+    navigate('/');
   };
 
   return (
@@ -46,9 +44,6 @@ const LoginForm = () => {
           Login
         </button>
       </form>
-      <button type="button" className="btn btn-primary btn-block w-100 mt-5" onClick={testAuthRequest}>
-        Test Authenticated Request
-      </button>
     </>
   );
 };

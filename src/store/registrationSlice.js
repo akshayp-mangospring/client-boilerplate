@@ -7,7 +7,11 @@ const initialState = null;
 const registrationSlice = createSlice({
   name: 'currentUser',
   initialState,
-  reducers: {},
+  reducers: {
+    logout() {
+      return null;
+    },
+  },
   extraReducers: (builder) => {
     // Thunk Reducers
     builder.addCase(login.fulfilled, (state, action) => {
@@ -31,4 +35,5 @@ export const signup = createAsyncThunk('user/signup', async (userData) => {
 });
 
 // Here we have to explicitly export the actions and the reducers as well.
+export const { logout } = registrationSlice.actions;
 export default registrationSlice.reducer;

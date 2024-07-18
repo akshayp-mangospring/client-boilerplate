@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { signup } from "@store/registrationSlice";
 
 const SignupForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -11,6 +13,7 @@ const SignupForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await dispatch(signup({ username, email, password }));
+    navigate('/');
   };
 
   return (
